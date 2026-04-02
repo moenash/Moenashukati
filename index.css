@@ -5,7 +5,8 @@
   --bg-card: #111111;
   --text: #f3f4f6;
   --text-dim: #9ca3af;
-  --accent: #FF6600; /* Vibrant Orange */
+  --accent: #FF6600;
+  /* Vibrant Orange */
   --accent-hover: #E65C00;
   --glass: rgba(17, 17, 17, 0.7);
   --border: rgba(255, 255, 255, 0.08);
@@ -34,7 +35,10 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: 'Almarai', sans-serif;
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -231,10 +235,16 @@ nav {
   font-size: 1.1rem;
 }
 
-.problem-item { border-left: 3px solid #ef4444; }
-.success-item { border-left: 3px solid #10b981; }
+.problem-item {
+  border-left: 3px solid #ef4444;
+}
 
-.cross-list li, .check-list-simple li {
+.success-item {
+  border-left: 3px solid #10b981;
+}
+
+.cross-list li,
+.check-list-simple li {
   position: relative;
   padding-right: 2rem;
   margin-bottom: 0.8rem;
@@ -274,7 +284,8 @@ nav {
   font-weight: bold;
 }
 
-.check-list-styled li, .cross-list-styled li {
+.check-list-styled li,
+.cross-list-styled li {
   position: relative;
   padding-right: 2.5rem;
   margin-bottom: 1rem;
@@ -282,7 +293,8 @@ nav {
 }
 
 .check-list-styled li::before {
-  content: '\f058'; /* FontAwesome circle-check */
+  content: '\f058';
+  /* FontAwesome circle-check */
   font-family: 'Font Awesome 6 Free';
   font-weight: 900;
   position: absolute;
@@ -292,7 +304,8 @@ nav {
 }
 
 .cross-list-styled li::before {
-  content: '\f057'; /* FontAwesome circle-xmark */
+  content: '\f057';
+  /* FontAwesome circle-xmark */
   font-family: 'Font Awesome 6 Free';
   font-weight: 900;
   position: absolute;
@@ -307,7 +320,7 @@ nav {
   color: #000;
   padding: 3rem;
   border-radius: 24px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
   position: relative;
 }
 
@@ -384,13 +397,16 @@ nav {
 .bonus-card::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0; height: 3px;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
   background: linear-gradient(90deg, transparent, var(--accent), transparent);
 }
 
 .bonus-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .bonus-icon {
@@ -419,7 +435,7 @@ nav {
 
 /* Guarantee Badge */
 .guarantee-badge {
-  background: linear-gradient(135deg, rgba(20,20,20,1) 0%, rgba(40,40,40,1) 100%);
+  background: linear-gradient(135deg, rgba(20, 20, 20, 1) 0%, rgba(40, 40, 40, 1) 100%);
   border: 2px solid #fbbf24;
   border-radius: 24px;
   padding: 4rem 2rem;
@@ -439,7 +455,7 @@ nav {
   background: var(--bg-card);
   border-radius: 50%;
   padding: 10px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
 .guarantee-highlight {
@@ -517,7 +533,7 @@ nav {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-out;
-  background: rgba(0,0,0,0.2);
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .accordion-content p {
@@ -556,15 +572,16 @@ nav {
 .badge {
   position: absolute;
   top: 15px;
-  right: 15px; /* RTL alignment */
-  background: rgba(0,0,0,0.7);
+  right: 15px;
+  /* RTL alignment */
+  background: rgba(0, 0, 0, 0.7);
   color: #fff;
   padding: 0.3rem 1rem;
   border-radius: 20px;
   font-weight: bold;
   z-index: 10;
   backdrop-filter: blur(4px);
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .badge-success {
@@ -577,7 +594,7 @@ nav {
   width: 100%;
   border-radius: 16px;
   border: 1px solid var(--border);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease;
 }
 
@@ -595,10 +612,30 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .nav-links { display: none; }
-  .cta-group { flex-direction: column; }
-  .phase-card { flex-direction: column; }
-  .phase-number { width: 100%; padding: 1rem 0; font-size: 2rem; }
-  .hero-content h1 { font-size: 2.2rem; }
-  .before-after-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .nav-links {
+    display: none;
+  }
+
+  .cta-group {
+    flex-direction: column;
+  }
+
+  .phase-card {
+    flex-direction: column;
+  }
+
+  .phase-number {
+    width: 100%;
+    padding: 1rem 0;
+    font-size: 2rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .before-after-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }
