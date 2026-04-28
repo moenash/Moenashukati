@@ -770,16 +770,16 @@ footer {
   .deadline-timer {
     left: 50%;
     right: auto;
-    bottom: 12px;
-    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    bottom: 20px;
+    bottom: calc(20px + env(safe-area-inset-bottom, 0px));
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
-    padding: 0.6rem 1rem;
+    padding: 0.5rem 0.75rem;
     flex-direction: column;
     -webkit-flex-direction: column;
-    gap: 0.4rem;
-    width: auto;
-    max-width: 92%;
+    gap: 0.25rem;
+    width: max-content;
+    max-width: 95%;
   }
 
   .deadline-timer.visible {
@@ -819,20 +819,21 @@ footer {
   .timer-boxes {
     justify-content: center;
     -webkit-justify-content: center;
+    gap: 0.3rem;
   }
 
   .timer-number {
-    font-size: 1.3rem;
-    width: 42px;
-    height: 42px;
+    font-size: 1.1rem;
+    width: 38px;
+    height: 38px;
   }
 
   .timer-text {
-    font-size: 0.6rem;
+    font-size: 0.55rem;
   }
 
   .timer-separator {
-    font-size: 1.2rem;
-    margin-bottom: 12px;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
   }
 }
