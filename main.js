@@ -50,9 +50,9 @@ window.addEventListener('scroll', () => {
 (function () {
     const DEADLINE = new Date('2026-05-07T23:59:59').getTime();
 
+    const daysEl = document.getElementById('timer-days');
     const hoursEl = document.getElementById('timer-hours');
     const minutesEl = document.getElementById('timer-minutes');
-    const secondsEl = document.getElementById('timer-seconds');
     const timerEl = document.getElementById('deadline-timer');
 
     function pad(n) {
@@ -64,20 +64,20 @@ window.addEventListener('scroll', () => {
         let diff = DEADLINE - now;
 
         if (diff <= 0) {
+            daysEl.textContent = '00';
             hoursEl.textContent = '00';
             minutesEl.textContent = '00';
-            secondsEl.textContent = '00';
             return;
         }
 
         const totalSeconds = Math.floor(diff / 1000);
-        const totalHours = Math.floor(totalSeconds / 3600);
+        const days = Math.floor(totalSeconds / (3600 * 24));
+        const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
         const mins = Math.floor((totalSeconds % 3600) / 60);
-        const secs = totalSeconds % 60;
 
-        hoursEl.textContent = pad(totalHours);
+        daysEl.textContent = pad(days);
+        hoursEl.textContent = pad(hours);
         minutesEl.textContent = pad(mins);
-        secondsEl.textContent = pad(secs);
     }
 
     // Update every second
