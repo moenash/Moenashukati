@@ -87,7 +87,8 @@ window.addEventListener('scroll', () => {
     }
 
     function checkScroll() {
-        if (window.scrollY > 300) {
+        const scrollPos = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollPos > 300) {
             timerEl.classList.add('visible');
             window.removeEventListener('scroll', checkScroll);
         }
