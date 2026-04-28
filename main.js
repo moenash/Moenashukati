@@ -48,12 +48,18 @@ window.addEventListener('scroll', () => {
 
 // ========== Deadline Countdown Timer ==========
 (function () {
-    const DEADLINE = new Date('2026-05-07T23:59:59').getTime();
+    // Using a more Safari-compatible date format
+    const DEADLINE = new Date(2026, 4, 7, 23, 59, 59).getTime(); // May 7, 2026
 
     const daysEl = document.getElementById('timer-days');
     const hoursEl = document.getElementById('timer-hours');
     const minutesEl = document.getElementById('timer-minutes');
     const timerEl = document.getElementById('deadline-timer');
+
+    if (!daysEl || !hoursEl || !minutesEl || !timerEl) {
+        console.warn('Timer elements not found');
+        return;
+    }
 
     function pad(n) {
         return String(n).padStart(2, '0');
@@ -63,7 +69,7 @@ window.addEventListener('scroll', () => {
         const now = Date.now();
         let diff = DEADLINE - now;
 
-        if (diff <= 0) {
+        if (isNaN(diff) || diff <= 0) {
             daysEl.textContent = '00';
             hoursEl.textContent = '00';
             minutesEl.textContent = '00';
@@ -80,17 +86,18 @@ window.addEventListener('scroll', () => {
         minutesEl.textContent = pad(mins);
     }
 
-    // Update every second
+    function checkScroll() {
+        if (window.scrollY > 300) {
+            timerEl.classList.add('visible');
+            window.removeEventListener('scroll', checkScroll);
+        }
+    }
+
+    // Update immediately and every second
     updateTimer();
     setInterval(updateTimer, 1000);
 
-    // Show timer when user scrolls past the hero
-    let timerShown = false;
-    window.addEventListener('scroll', () => {
-        if (timerShown) return;
-        if (window.scrollY > 300) {
-            timerEl.classList.add('visible');
-            timerShown = true;
-        }
-    });
+    // Initial check and scroll listener
+    checkScroll();
+    window.addEventListener('scroll', checkScroll);
 })();
