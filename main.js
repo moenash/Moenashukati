@@ -45,3 +45,52 @@ window.addEventListener('scroll', () => {
         nav.style.backgroundColor = 'rgba(17, 17, 17, 0.7)';
     }
 });
+
+// ========== Deadline Countdown Timer ==========
+(function () {
+    const DEADLINE = new Date('2026-05-07T23:59:59').getTime();
+
+    const hoursEl = document.getElementById('timer-hours');
+    const minutesEl = document.getElementById('timer-minutes');
+    const secondsEl = document.getElementById('timer-seconds');
+    const timerEl = document.getElementById('deadline-timer');
+
+    function pad(n) {
+        return String(n).padStart(2, '0');
+    }
+
+    function updateTimer() {
+        const now = Date.now();
+        let diff = DEADLINE - now;
+
+        if (diff <= 0) {
+            hoursEl.textContent = '00';
+            minutesEl.textContent = '00';
+            secondsEl.textContent = '00';
+            return;
+        }
+
+        const totalSeconds = Math.floor(diff / 1000);
+        const totalHours = Math.floor(totalSeconds / 3600);
+        const mins = Math.floor((totalSeconds % 3600) / 60);
+        const secs = totalSeconds % 60;
+
+        hoursEl.textContent = pad(totalHours);
+        minutesEl.textContent = pad(mins);
+        secondsEl.textContent = pad(secs);
+    }
+
+    // Update every second
+    updateTimer();
+    setInterval(updateTimer, 1000);
+
+    // Show timer when user scrolls past the hero
+    let timerShown = false;
+    window.addEventListener('scroll', () => {
+        if (timerShown) return;
+        if (window.scrollY > 300) {
+            timerEl.classList.add('visible');
+            timerShown = true;
+        }
+    });
+})();
