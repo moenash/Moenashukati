@@ -49,7 +49,8 @@ window.addEventListener('scroll', () => {
 // ========== Deadline Countdown Timer ==========
 (function () {
     // Using a more Safari-compatible date format
-    const DEADLINE = new Date(2026, 4, 17, 17, 0, 0).getTime(); // May 17, 2026 at 17:00:00 (5 PM)
+    const DEADLINE = new Date(2026, 4, 25, 17, 0, 0).getTime(); // May 25, 2026 at 17:00:00 (5 PM)
+    console.log("Timer Deadline updated to May 25, 2026");
 
     const daysEl = document.getElementById('timer-days');
     const hoursEl = document.getElementById('timer-hours');
